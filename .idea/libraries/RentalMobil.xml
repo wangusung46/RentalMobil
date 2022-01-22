@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RentalMobil">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/RentalMobil.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
