@@ -14,7 +14,7 @@
    <children>
       <VBox prefHeight="420.0" prefWidth="720.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="720.0" text="DASHBOARD">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="720.0" text="DELETE">
                <font>
                   <Font size="30.0" />
                </font>

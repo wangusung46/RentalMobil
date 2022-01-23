@@ -7,6 +7,7 @@ package rentalmobil.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import static java.time.temporal.ChronoUnit.DAYS;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -81,6 +82,7 @@ public class AddController implements Initializable {
                 && !fieldPlat.getText().equals("")
                 && !fieldHarga.getText().equals("")) {
             if (isNumeric(fieldHarga.getText())) {
+                Long days;
                 Mobil mobil = new Mobil(
                         fieldNama.getText(),
                         fieldKtp.getText(),
@@ -89,9 +91,10 @@ public class AddController implements Initializable {
                         dateSewa.getValue(),
                         datePengambilan.getValue(),
                         fieldPlat.getText(),
-                        BigDecimal.valueOf(Integer.parseInt(fieldHarga.getText()))
+                        BigDecimal.valueOf((DAYS.between(dateSewa.getValue(), datePengambilan.getValue()) + 1) * Integer.parseInt(fieldHarga.getText()))
                 );
                 mobilJdbc.addMobil(mobil);
+                setCombo();
                 getSuccessMessage("Data Berhasil di simpan");
             } else {
                 getWarningMessage("Harga harus berupa angka");
@@ -99,6 +102,19 @@ public class AddController implements Initializable {
         } else {
             getWarningMessage("Field Text Harus di isi Semua");
         }
+    }
+
+    @FXML
+    private void performAddJenis(ActionEvent event) {
+        if (comboJenisMobil.getSelectionModel().getSelectedItem() != null) {
+            JenisMobil jenisMobil = jenismobilJdbc.selectJenisMobil(comboJenisMobil.getSelectionModel().getSelectedItem().toString());
+            fieldPlat.setText(jenisMobil.getPlatNomor());
+            fieldHarga.setText("" + jenisMobil.getHarga());
+        } else {
+            fieldPlat.setText("");
+            fieldHarga.setText("");
+        }
+
     }
 
     @FXML
@@ -119,7 +135,7 @@ public class AddController implements Initializable {
         alert.setContentText(string);
         alert.show();
     }
-    
+
     private void getSuccessMessage(String string) {
         alert.setAlertType(Alert.AlertType.CONFIRMATION);
         alert.setContentText(string);

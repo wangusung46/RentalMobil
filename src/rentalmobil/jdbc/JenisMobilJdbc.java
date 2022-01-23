@@ -20,4 +20,8 @@ import rentalmobil.model.JenisMobil;
 public interface JenisMobilJdbc {
     
     public abstract List<JenisMobil> selectJenisMobils();
+    
+    public abstract JenisMobil selectJenisMobil(String nama);
+    
+    public abstract void deleteMobil(String nama);
 }

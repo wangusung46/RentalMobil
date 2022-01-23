@@ -50,6 +50,8 @@ public class JenisMobilJdbcImpl implements JenisMobilJdbc {
                 JenisMobil jenisMobil = new JenisMobil();
                 jenisMobil.setKode(resultSet.getLong(1));
                 jenisMobil.setNama(resultSet.getString(2));
+                jenisMobil.setPlatNomor(resultSet.getString(3));
+                jenisMobil.setHarga(resultSet.getBigDecimal(4));
                 jenisMobils.add(jenisMobil);
             }
             resultSet.close();
@@ -64,6 +66,43 @@ public class JenisMobilJdbcImpl implements JenisMobilJdbc {
         alert.setAlertType(AlertType.WARNING);
         alert.setContentText(string);
         alert.show();
+    }
+
+    @Override
+    public JenisMobil selectJenisMobil(String nama) {
+        JenisMobil jenisMobil = new JenisMobil();
+        try {
+            sql = "SELECT * FROM jenis_mobil WHERE nama = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, nama);
+            System.out.println(preparedStatement.toString());
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                jenisMobil.setKode(resultSet.getLong(1));
+                jenisMobil.setNama(resultSet.getString(2));
+                jenisMobil.setPlatNomor(resultSet.getString(3));
+                jenisMobil.setHarga(resultSet.getBigDecimal(4));
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            getWarningMessage(e.getMessage());
+        }
+        return jenisMobil;
+    }
+
+    @Override
+    public void deleteMobil(String nama) {
+        try {
+            sql = "DELETE FROM jenis_mobil WHERE nama = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, nama);
+            System.out.println(preparedStatement.toString());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            getWarningMessage(e.getMessage());
+        }
     }
 
 }

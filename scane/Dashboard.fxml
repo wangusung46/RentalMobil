@@ -11,7 +11,7 @@
    <children>
       <VBox prefHeight="420.0" prefWidth="720.0" style="-fx-background-color: #CCCC99;">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="720.0" style="-fx-background-color: #D3C4BE;" text="DASHBOARD" textAlignment="RIGHT" textOverrun="CENTER_WORD_ELLIPSIS">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="720.0" style="-fx-background-color: #D3C4BE;" text="Dashboard" textAlignment="RIGHT" textOverrun="CENTER_WORD_ELLIPSIS">
                <font>
                   <Font size="36.0" />
                </font>

@@ -15,7 +15,7 @@
          <children>
             <VBox prefHeight="420.0" prefWidth="720.0">
                <children>
-                  <Label fx:id="author" alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="720.0" style="-fx-background-color: #E8E6D9;" text="LOGIN">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="720.0" style="-fx-background-color: #E8E6D9;" text="LOGIN">
                      <font>
                         <Font name="Century Schoolbook" size="34.0" />
                      </font>

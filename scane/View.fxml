@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="720.0" style="-fx-background-color: #ABC4FF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rentalmobil.controller.DeleteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="720.0" style="-fx-background-color: #ABC4FF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rentalmobil.controller.ViewController">
    <children>
       <VBox prefHeight="420.0" prefWidth="720.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="720.0" text="DASHBOARD">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="720.0" text="VIEW">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-           <TableView fx:id="tabelPesanan" editable="true" prefHeight="400.0" prefWidth="720.0" style="-fx-background-color: #F0FFF0#F0FFF0;">
+            <TableView fx:id="tabelPesanan" editable="true" prefHeight="400.0" prefWidth="720.0" style="-fx-background-color: #F0FFF0#F0FFF0;">
               <columns>
                 <TableColumn fx:id="kolomKode" maxWidth="-1.0" minWidth="50.0" prefWidth="-1.0" text="KODE" />
                 <TableColumn fx:id="kolomNama" maxWidth="-1.0" minWidth="100.0" prefWidth="-1.0" text="NAMA" />
@@ -32,22 +30,7 @@
                   <TableColumn fx:id="kolomHarga" maxWidth="-1.0" minWidth="60.0" prefWidth="-1.0" text="HARGA" />
               </columns>
             </TableView>
-            <VBox prefHeight="250.0" prefWidth="100.0">
-               <children>
-                  <HBox prefWidth="720.0">
-                     <children>
-                        <Label prefWidth="200.0" text="Masukkan kode pesanan">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <ComboBox fx:id="comboKode" prefHeight="25.0" prefWidth="520.0" promptText="Kode Mobil" />
-                     </children>
-                  </HBox>
-                  <Button fx:id="buttonDelete" mnemonicParsing="false" onAction="#performDelete" prefWidth="720.0" text="Delete" />
-               </children>
-            </VBox>
-            <Button fx:id="buttonback" mnemonicParsing="false" onAction="#performBack" prefWidth="720.0" text="Back" />
+            <Button fx:id="doBack" mnemonicParsing="false" onAction="#performBack" prefHeight="25.0" prefWidth="720.0" text="Back" />
          </children>
       </VBox>
    </children>
